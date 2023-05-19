@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link In Bio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="links" id="links">
+        <!-- ===== Heading And Image ====== -->
+        <div class="image">
+            <h2 id="TheTitle"></h2>
+        </div>
+        <!-- ====== Links ====== -->
+        <ul class="links">
+            <li class="link_Mains Instagram">
+                <a href="" target="_blank" id="LinkOneTitle" class="outputLink" ></a>
+            </li>
+
+
+
+            <li class="link_Mains Github">
+                <a class="outputLink" href="" target="_blank" id="LinkTwoTitle"  ></a>
+            </li>
+
+
+
+
+
+            <li class="link_Mains Devto">
+                <a href="" target="_blank" id="LinkThreeTitle" class="outputLink"></a>
+            </li>
+            <li class="link_Mains Medium">
+                <a href="" target="_blank" id="LinkFourTitle" class="outputLink"></a>
+            </li>
+            <li class="link_Mains Blog">
+                <a href="" target="_blank" id="LinkFiveTitle" class="outputLink"></a>
+            </li>
+        </ul>
+    </section>
+
+
+    <script>
+        window.addEventListener('load', () => {
+            const params = (new URL(document.location)).searchParams;
+            const name = params.get('Name');
+            const LinkOne = params.get('LinkOne');
+            const LinkTwo = params.get('LinkTwo');
+            const LinkThree = params.get('LinkThree');
+            const LinkFour = params.get('LinkFour');
+            const LinkFive = params.get('LinkFive');
+
+            document.getElementById('TheTitle').innerHTML = name;
+            document.getElementById('LinkOneTitle').innerHTML = LinkOne;
+            document.getElementById('LinkTwoTitle').innerHTML = LinkTwo;
+            document.getElementById('LinkThreeTitle').innerHTML = LinkThree;
+            document.getElementById('LinkFourTitle').innerHTML = LinkFour;
+            document.getElementById('LinkFiveTitle').innerHTML = LinkFive;
+        })
+
+
+
+
+        var savedURLs = JSON.parse(localStorage.getItem("savedURLs")) || [];
+        var outputLinks = document.getElementsByClassName("outputLink");
+
+        for(var i = 0; i < outputLinks.length; i++){
+            outputLinks[i].href = savedURLs[i] || "";
+            outputLinks[i].innerText = savedURLs[i] || "";
+        }
+
+
+
+    </script>
+</body>
+
+</html>
