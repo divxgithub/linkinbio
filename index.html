@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link In Bio Log In</title>
+    <link rel="stylesheet" href="TheLoginPage.css">
+</head>
+
+<body>
+
+    <!--=======  The Link In Bio Title =========-->
+
+    <div class="title">
+        <h2>The Link IN Bio Project</h2>
+        <h4>Enter The Details Below</h4>
+        <br />
+    </div>
+
+    <div class="container">
+        <form action="TheLinkInBioPage.html.html" method='GET' id="myForm">
+
+
+            <!--=== To Enter The Name ==== -->
+            <input type="text" name="Name" placeholder="Enter Name">
+            <br />
+            <br />
+            <h2>The Title For The Links</h2>
+            <br />
+            <!--==== The Title For Link One =====-->
+            <input type="text" name="LinkOne" placeholder="Link One Title">
+            <!-- <input type="text" id="linkInput" placeholder="Link One Real"> -->
+
+
+
+
+
+            <input type="text" name="LinkTwo" placeholder="Link two Title">
+            <input type="text" name="LinkThree" placeholder="Link two Title">
+            <input type="text" name="LinkFour" placeholder="Link two Title">
+            <input type="text" name="LinkFive" placeholder="Link two Title">
+            <br />
+            <br />
+            <br />
+            <br />
+            <h2>The Links For The Title</h2>
+
+            
+            <div class="linksssssssss">
+                <label for="url">Enter URL LinkOne</label>
+                <br> <input type="text" id="urlforLinkOne" name="urlforLinkOne" placeholder="Enter URL LinkOne">
+                <br><br>
+                <label for="url2">Enter URL LinkTwo </label><br>
+                <br> <input type="text" id="urlforLinkTwo" name="urlforLinkTwo" placeholder="Enter URL LinkTwo"><br>
+
+
+                <label for="url3">Enter URL LinkThree</label><br>
+                <br> <input type="text" id="urlforLinkThree" name="urlforLinkThree" placeholder="Enter URL LinkThree">
+
+                <br><br>
+                <label for="url4">Enter URL LinkFour</label>
+                <br> <input type="text" id="urlforLinkFour" name="urlforLinkFour" placeholder="Enter URL LinkFour">
+                <br><br>
+                <label for="url5">Enter URL LinkFive</label>
+                <br> <input type="text" id="urlforLinkFive" name="urlforLinkFive" placeholder="Enter URL LinkFive">
+                <br />
+                <br />
+                
+                <button type="submit" onclick="Saveurl()" class="btn">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+
+    <script>
+        function Saveurl() {
+            var url = document.getElementById("urlforLinkOne").value;
+            var url2 = document.getElementById("urlforLinkTwo").value;
+            var url3 = document.getElementById("urlforLinkThree").value;
+            var url4 = document.getElementById("urlforLinkFour").value;
+            var url5 = document.getElementById("urlforLinkFive").value;
+
+
+            var savedURLs = [url, url2, url3, url4, url5];
+            localStorage.setItem("savedURLs", JSON.stringify(savedURLs));
+        }
+    </script>
+</body>
+
+</html>
