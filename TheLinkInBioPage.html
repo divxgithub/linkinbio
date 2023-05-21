@@ -41,6 +41,8 @@
                 <a href="" target="_blank" id="LinkFiveTitle" class="outputLink"></a>
             </li>
         </ul>
+        <button id="copy-link-button">The Copy Link Button</button>
+    </section>
     </section>
 
 
@@ -72,6 +74,38 @@
             outputLinks[i].href = savedURLs[i] || "";
             outputLinks[i].innerText = savedURLs[i] || "";
         }
+
+        // Get the reference to the copy link button
+        const copyLinkButton = document.getElementById('copy-link-button');
+
+        // Add a click event listener to the button
+        copyLinkButton.addEventListener('click', () => {
+            // Get the URL of the current web page
+            const pageLink = window.location.href;
+
+            // Create a temporary input element
+            const tempInput = document.createElement('input');
+            tempInput.value = pageLink;
+
+            // Append the input element to the document body
+            document.body.appendChild(tempInput);
+
+            // Select the input element's contents
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); // For mobile devices
+
+            // Copy the selected text to the clipboard
+            document.execCommand('copy');
+
+            // Remove the temporary input element from the document body
+            document.body.removeChild(tempInput);
+
+            // Update the button text briefly to indicate successful copying
+            copyLinkButton.textContent = 'Link Copied!';
+            setTimeout(() => {
+                copyLinkButton.textContent = 'Copy Link';
+            }, 2000);
+        });
 
 
 
